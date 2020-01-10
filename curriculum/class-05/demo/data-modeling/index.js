@@ -7,27 +7,25 @@ const MONGOOSE_URI = 'mongodb://localhost:27017/class05';
 
 mongoose.connect(MONGOOSE_URI, { useNewUrlParser: true });
 
-let players = new Players();
+let food = new food();
 
 const doDataStuff = async () => {
 
   let sampleObject = {
-    name: 'John',
-    position: 'C',
-    bats: 'L',
-    throws: 'R',
-    team: 'Mariners',
+    name: 'Cabbage',
+    calories: 146,
+    type: 'VEGETABLE',
   };
 
-  let newPlayer = await players.create(sampleObject);
-  console.log('Player Created', newPlayer);
+  let newFood = await food.create(sampleObject);
+  console.log('Food Created', newFood);
 
 
-  let allPlayers = await players.get();
-  console.log('All Players', allPlayers);
+  let allFood = await food.get();
+  console.log('All Food', allFood);
 
-  let onePlayer = await players.get('5d12a3c0e27a289b9bd5eca4');
-  console.log('One Player', onePlayer);
+  // let oneFood = await food.get('');
+  // console.log('One Food', oneFood);
 
   // Disconnect from Mongo
   mongoose.disconnect();
